@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Anima</title>
+    <title><%= yield(:title) %> | Anima</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,6 +11,11 @@
     <%=render 'layouts/header'%>
   </head>
   <body>
+<% if flash[:notice] %>
+<div class="flash">
+<%=flash[:notice]%>
+</div>
+<% end %>
   <%= yield %>
   </body>
 </html>

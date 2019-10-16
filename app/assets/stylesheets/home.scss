@@ -140,13 +140,12 @@ a{
     }
 }
 
-
-    
 .title{
     font-size: 80px;
+    font-weight: lighter;
     font-family: 'HanziPen SC',sans-serif;
     position: absolute;
-    top: 25%; left: 30%;
+    top: 28%; left: 30%;
     animation-name: fadeinTitle;
     animation-duration: 4s;
 } 
