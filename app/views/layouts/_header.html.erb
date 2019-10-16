@@ -1,0 +1,40 @@
+<header>
+<div class="header-logo">
+ 　<%= link_to "Anima",root_path%>
+ </div>
+ 　<ul class="head-list" style= "list-style-type:none;margin-top: 0px; " >
+ <%if session[:user_id]%>
+ 　　<%= link_to "/logout", {method: :post} do %>
+  　　　<li class="login">Logout</li>
+  　<%end%>
+  　<li class="user-id">
+  <%if @current_user%>
+    <%= link_to(@current_user.name, "/user/#{@current_user.id}/edit")   %>
+      </li> 
+  <%end%>
+  <%= link_to "/user/index" do %>
+    　　<li class="user-link"><i class="fas fa-users"></i></li> 
+   　<%end%>
+
+   <%= link_to "/posts/new" do %>
+    　　<li class="user-link"><i class="fas fa-pen"></i></li> 
+   　<%end%>
+
+  <%else%>
+
+　<%= link_to "/login" do %>
+  　　　<li class="login">Login</li>
+  　<%end%>
+
+  　<%= link_to "/signup" do %>
+    　　<li class="register">Signup</li> 
+    <%end%>
+  <%end%>
+
+    <%= link_to "/posts/index" do %>
+      　　<li class="user-link"><i class="fas fa-search"></i></li> 
+     　<%end%>
+
+   　</ul>
+  　</div>
+</header>
