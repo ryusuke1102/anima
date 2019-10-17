@@ -190,9 +190,9 @@ a{
     font-weight: lighter;
     font-size: 32px;
     letter-spacing: 2px; 
+    margin-bottom: 30px;
 }
 .login-wrapper{
-    background-image: url("login.jpg");
     position: absolute;
     top: 0%;
     left: 0%;
@@ -268,7 +268,6 @@ form button:hover {
 }
 
 .user-form{
-    background-image: url("signup.jpg");
     background-size: cover;
     position: absolute;
     top: 0%;
