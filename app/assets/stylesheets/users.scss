@@ -1,4 +1,6 @@
-
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
 
 .page-title{
     color: rgba(216, 77, 42, 0.8);
@@ -12,7 +14,6 @@
 }
 
 .users-bg{
-    background-image: url("user-index.jpg");
     height: 1200px;
     background-size: cover; 
     position: relative;

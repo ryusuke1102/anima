@@ -1,0 +1,25 @@
+<div class="login-wrapper">
+<div class="bg-mask">
+<div class="container">
+　<div class="login-form">
+　　<% if @error_message %>
+      <div class="error-message">
+        <%=@error_message%>
+      </div>
+    <%end%>
+  
+<div class="form-body">
+    <%= form_tag("/login") do %>
+      <form>
+      <div class="login-title">
+      Login
+      </div>
+<input type="email" name="email" placeholder="email"></input> <input type="password" name="password" placeholder="password"> 
+  <button type="submit" id="login-button"><i class="fas fa-sign-in-alt" "icon"></i>Login</button>   
+   <%end%>
+      </form>
+  </div>
+ </div>
+</div>
+</div>
+</div>
