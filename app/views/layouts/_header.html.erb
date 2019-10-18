@@ -9,10 +9,10 @@
   　<%end%>
   　<li class="user-id">
   <%if @current_user%>
-    <%= link_to(@current_user.name, "/user/#{@current_user.id}/edit")   %>
+    <%= link_to(@current_user.name, "/users/#{@current_user.id}/edit")   %>
       </li> 
   <%end%>
-  <%= link_to "/user/index" do %>
+  <%= link_to users_path do %>
     　　<li class="user-link"><i class="fas fa-users"></i></li> 
    　<%end%>
 
