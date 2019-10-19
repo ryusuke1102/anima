@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     image_name: "default_image.jpg")
 
    if @post.save
-    if params[:image]
+     if params[:image]
       @post.image_name = "#{@post.id}.jpg"
       image = params[:image]
       File.binwrite("public/posts_images/#{@post.image_name}",image.read)
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
       redirect_to(posts_path)
       flash[:notice] = "投稿しました"
 
-   end
+    end
   end
 
   def show

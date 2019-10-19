@@ -9,7 +9,7 @@
       <%= link_to("/posts/#{post.id}") do %>
   <div class="posts-index">
     <div class="post-index-item">
-     <%=post.content%>
+     <%=truncate(post.content, length:14)%>
 
       <div class="post_image">
        <img src="<%="/posts_images/#{post.id}.jpg"%>">

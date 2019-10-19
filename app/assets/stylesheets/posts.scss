@@ -16,7 +16,6 @@
 }
 
 .post-form{
-    background-image: url("post-form.jpg");
     background-size: cover;
     position: absolute;
     top: 0;
@@ -32,6 +31,7 @@
     border-bottom: 0px solid rgba(58, 51, 51, 0.678);
     border-left: 0px solid rgba(58, 51, 51, 0.678);
     border-radius: 3px;
+    height: 250px;
  }     
 
 .post-index-item:hover{

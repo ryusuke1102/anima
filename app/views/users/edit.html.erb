@@ -1,13 +1,10 @@
-<% if flash[:notice] %>
-<div class="flash">
-<%=flash[:notice]%>
-</div>
-<% end %>
 <div class="users-bg">
+<%=image_tag"user-index.jpg", class:"users-bg"%>
+
  <div class="bg-mask">
   <div class="user-profile">
    <div class="user-img"">
-   <%= link_to("/user/#{@user.id}") do%>
+   <%= link_to("/users/#{@user.id}") do%>
     <img src="<%="/users_images/#{@user.image_name}"%>">
     <%end%>
    </div>
@@ -20,11 +17,11 @@
        </div>
        <div class="edit-btn">
        <% if @current_user.id == @user.id%>
-          <%= link_to("/user/#{@user.id}") do%>
+          <%= link_to("/users/#{@user.id}") do%>
           <i class="fas fa-user-edit"></i>
           <%end%>
 
-          <%= link_to("/user/#{@user.id}/destroy", {method: "post"}) do %>
+          <%= link_to("/users/#{@user.id}/destroy", {method: "post"}) do %>
           <i class="fas fa-trash"></i>
           <%end%>
        <%end%>
@@ -37,7 +34,7 @@
     <% @user.posts.each do |post|%>
         <div class="posts-index">
         <div class="post-index-item">
-        <%= link_to(post.content, "/posts/#{post.id}") %>
+        <%= link_to(truncate(post.content,length:14) ,"/posts/#{post.id}") %>
     
           <div class="post_image">
            <img src="<%="/posts_images/#{post.id}.jpg"%>">

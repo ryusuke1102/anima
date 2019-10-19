@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user,{only: [:edit]}
 
   def index
-    @users = User.all
+    @users = User.all.order(created_at: :asc)
+    @users = User.page(params[:page]).per(8)
     @user = User.find_by(id: params[:id])
   end
 
