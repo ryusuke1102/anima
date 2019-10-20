@@ -1,3 +1,4 @@
+<%=provide(:title,"posts")%>
 <div class="index-bg">
 　<%=image_tag "post-index.jpg", class:"index-bg"%>
  <div class="bg-mask">
@@ -9,15 +10,16 @@
       <%= link_to("/posts/#{post.id}") do %>
   <div class="posts-index">
     <div class="post-index-item">
-     <%=truncate(post.content, length:14)%>
+          <%=truncate(post.content, length:14)%>
 
-      <div class="post_image">
-       <img src="<%="/posts_images/#{post.id}.jpg"%>">
-      </div>
-     
-        <div class="post-user-name">
-      　 投稿者：<%=link_to(post.users.name, "/user/#{post.users.id}/edit")%>
-        </div>
+          <div class="post_image">
+            <img src="<%="/posts_images/#{post.id}.jpg"%>">
+          </div>
+          
+          <div class="post-user-name">
+          
+          </div>
+          
         <%end%>
         </div>
        </div>

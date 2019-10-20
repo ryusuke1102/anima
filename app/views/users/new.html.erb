@@ -1,6 +1,7 @@
-<div class="user-form">
-<%=image_tag "signup.jpg", class:"user-form"%>
-<div class="bg-mask">
+<%=provide(:title,"users-new")%>
+　<div class="user-form">
+　　<%=image_tag "signup.jpg", class:"user-form"%>
+　　　<div class="bg-mask">
 
  <div class="container">
  　<% if @error_message %>
@@ -8,7 +9,6 @@
         <%=@error_message%>
       </div>
     <%end%>
-
 
    <div class="form-body">
     <%= form_tag("/users/create") do %>

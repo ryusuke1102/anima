@@ -1,7 +1,14 @@
+<%=provide(:title,"users-new")%>
 <div class="users-bg">
 <%=image_tag"user-index.jpg", class:"users-bg"%>
  <div class="bg-mask">
+ 　
  <div class="container">
+ <% if @error_message %>
+      <div class="error-message">
+        <%=@error_message%>
+      </div>
+    <%end%>
  <div class="form-body">
     <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
      <form>
@@ -9,12 +16,12 @@
      User Edit
      </div>
   　   <input name="name", value="<%=@user.name%>" placeholder="user"> <input name="email", value="<%=@user.email%>" placeholder="email"> 
+       <input name="password", value="" placeholder="password"> 
        <div class="btn">
        　<input name="image" type="file" >
        </div>
        <button type="submit" id="login-button"><i class="fas fa-pencil-alt" "icon"></i>edit</button>   
        </form>
        <%end%>
-       
   </div>
 </div>

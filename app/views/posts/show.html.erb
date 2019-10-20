@@ -1,11 +1,12 @@
+<%=provide(:title,"posts-show")%>
 <div class="post-form"> 
-<%=image_tag "post-form.jpg", class:"posdt-form"%>
+<%=image_tag "post-form.jpg", class:"post-form"%>
  <div class="bg-mask">
   <div class="edit-index">
-   <div class="container">
-　　　<div class="posts-content">
-        <p style="margin: 0; padding: 0;"><%= @post.content %></p>
-        <p style="margin-top: 0;">User:<%= link_to(@user.name, "/user/#{@user.id}/edit") %></p>
+　　　<div class="posts-title">
+        <h1 style="margin-top: 0; padding-top: 0;"><%= @post.content %></h1>
+        <h4 class="post-user-name",style="margin-top: 0;"><img src="<%="/users_images/#{@user.image_name}"%>"><%= link_to(@user.name, "/users/#{@user.id}/edit") %></h4>
+   
 
       <div class="posts-image">
         <img src="<%="/posts_images/#{@post.id}.jpg"%>">
@@ -38,7 +39,6 @@
    
       </div>
     </div>
-  </div>
 
     
 

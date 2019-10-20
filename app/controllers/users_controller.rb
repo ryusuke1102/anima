@@ -58,6 +58,7 @@ class UsersController < ApplicationController
     @post = Post.where(user_id: @user.id)
     @post.destroy_all
     flash[:notice] = "ユーザーを削除しました"
+    session[:user_id] = nil
     redirect_to("/")
 
   end
@@ -81,6 +82,9 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "ユーザー情報を編集しました。"
       redirect_to("/users/#{@user.id}/edit")
+    else
+      @error_message = "入力内容に誤りがあります"
+      render("users/show")
     end
     
   end

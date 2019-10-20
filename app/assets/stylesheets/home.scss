@@ -285,3 +285,33 @@ form i{
   position: absolute;
   left: 10px;
 }
+
+/* footer */
+
+footer {
+    padding-left: 20px; 
+    padding-top: 2px;
+    height: 25px;
+    position: fixed;
+    bottom:0%;
+    left: 0%;
+    width: 100%;
+    border-top: 1px solid #eaeaea;
+    background: #ffffffb2;
+    color: #555;
+  ul{
+    list-style: none;
+    padding-right: 50px;
+    font-size: 18px;
+    text-align: right;
+  }
+}
+
+footer small{
+    float: left; 
+    color: #555;
+}
+
+footer a:hover{
+    color: #777;
+}
