@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   post "login" => "users#login"
 
   get '/users',to:'users#index'
-  post "users/create" => "users#create"
   get "users/:id/edit" => "users#edit"
   post "users/:id/update" => "users#update"
   post "users/:id/destroy" => "users#destroy"
   get "users/:id" => "users#show"
   get "signup" => "users#new"
+  post '/signup',  to: 'users#create'
 
   get "posts/new"
   post 'posts/create'
@@ -22,6 +22,5 @@ Rails.application.routes.draw do
   get '/posts',to:'posts#index'
   root 'home#top'
 
-  resources :users
   resources :posts
 end

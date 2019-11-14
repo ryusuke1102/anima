@@ -11,12 +11,12 @@
     <%end%>
 
    <div class="form-body">
-    <%= form_tag("/users/create") do %>
+    <%= form_for(@user, url: signup_path) do %>
      <form>
      <div class="login-title">
      Signup
      </div>
-  　   <input name="name", value="<%=@user.name%>" placeholder="user"> <input name="email", value="<%=@user.email%>" placeholder="email"> 
+  　   <input name="name", value="<%=@user.name%>" placeholder="user"><input name="email", value="<%=@user.email%>" placeholder="email"> 
        <input name="password", value="<%=@user.password%>" placeholder="password"> 
        <button type="submit" id="login-button"><i class="fas fa-pencil-alt" "icon"></i>Signup</button>   
        </form>
