@@ -1,10 +1,11 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  def setup
-    @user = users[:minee]
+ 
+  test "should get user index" do
+    get users_path
+    assert_response :success
+    assert_select "title", "users-index | Anima"
   end
-
-
 
 end

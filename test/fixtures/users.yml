@@ -1,7 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 minee:
+  id: 1
   name: minee
   email: ryusukeminee@gmail.com
   password: password
+
+ryusuke:
+   id: 2
+   name: ryusuke
+   email: ryusukeminee2@gmail.com
+   password: password
+
 

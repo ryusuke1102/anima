@@ -6,7 +6,7 @@
    <div class="user-img"">
   
    <% if @current_user.id == @user.id %>
-     <%= link_to("/users/#{@user.id}") do%>
+     <%= link_to user_path(@user) do%>
       <img src="<%="/users_images/#{@user.image_name}"%>">
      <%end%>
    <%else%>
@@ -18,16 +18,16 @@
         <%=@user.name%></br>
        </div>
        <div class="user-email">
-           <%=@user.email%> 
+        <%=@user.email%> 
        </div>
        </div>
        <div class="edit-btn">
        <% if @current_user.id == @user.id%>
-          <%= link_to("/users/#{@user.id}") do%>
+          <%= link_to user_path(@user) do%>
           <i class="fas fa-user-edit"></i>
           <%end%>
 
-          <%= link_to("/users/#{@user.id}/destroy", {method: "post"}) do %>
+          <%= link_to @user, method: :delete,data: { confirm: "ユーザーを削除しますか?" } do %>
           <i class="fas fa-trash"></i>
           <%end%>
        <%end%>
