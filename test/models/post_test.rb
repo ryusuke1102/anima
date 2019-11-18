@@ -32,7 +32,7 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test "detail should not be too long" do
-    @post.detail = "a" * 351
+    @post.detail  = "a" * 351
     assert_not @post.valid?
   end
 
