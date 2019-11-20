@@ -247,7 +247,6 @@ form input:hover {
 }
 form input:focus {
     background-color: white;
-    width: 300px;
     color: rgb(216, 77, 42);
    }
 form button {
@@ -315,5 +314,22 @@ footer small{
 }
 
 footer a:hover{
+    
     color: #777;
 }
+
+// remember me チェックボックス
+
+.field{
+    margin-top: 20px;
+    margin-right: -14px;
+    width: auto;
+ }
+
+ .checkbox{
+    margin-left: -60px;
+    margin-top: -20px;
+ }
+
+
+

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  include ApplicationHelper
   before_action :authenticate_user,{only: [:edit]}
+
 
   def index
     @users = User.all.order(created_at: :asc)
@@ -37,7 +39,9 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(email: params[:email],password: params[:password])
     if @user
-      session[:user_id] = @user.id
+      log_in @user
+      params[:remember_me] == '1' ? remember(@user): forget(@user)
+      remember @user
       flash[:notice] = "ログインしました"
       redirect_to("/posts")
     else
@@ -48,6 +52,7 @@ class UsersController < ApplicationController
 
   def logout
     session[:user_id] = nil
+    forget(@current_user)
     flash[:notice] = "ログアウトしました"
     redirect_to("/login")
   end

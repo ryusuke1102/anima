@@ -12,27 +12,27 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test "user id should be present" do
-    @post.user_id = nil
+    @post.user_id  = nil
     assert_not @post.valid?
   end
 
   test "content should be present" do
-    @post.content = ""
+    @post.content  = ""
     assert_not @post.valid?
   end
 
   test "detail should be present" do
-    @post.detail  = ""
+    @post.detail   = ""
     assert_not @post.valid?
   end
 
   test "content should not be too long" do
-    @post.content = "a" * 31
+    @post.content  = "a" * 31
     assert_not @post.valid?
   end
 
   test "detail should not be too long" do
-    @post.detail  = "a" * 351
+    @post.detail   = "a" * 351
     assert_not @post.valid?
   end
 

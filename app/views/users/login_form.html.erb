@@ -11,14 +11,25 @@
     <%end%>
   
 <div class="form-body">
-    <%= form_tag("/login") do %>
+    <%= form_for(:session, url:login_path) do |f| %>
       <form>
       <div class="login-title">
       Login
       </div>
 <input type="email" name="email" placeholder="email"></input> <input type="password" name="password" placeholder="password"> 
-  <button type="submit" id="login-button"><i class="fas fa-sign-in-alt" "icon"></i>Login</button>   
-   <%end%>
+  <button type="submit" id="login-button"><i class="fas fa-sign-in-alt" "icon"></i>Login</button>
+  </br>
+  
+  <div class="field">
+     <div class="remember-label">
+      <%= f.label :remember_me %>
+     </div>
+     <div class="checkbox">
+      <%= f.check_box :remember_me %>
+     </div>
+    </div>
+  <%end%>
+   
       </form>
   </div>
  </div>
