@@ -19,9 +19,10 @@ class UsersController < ApplicationController
       name: params[:name], 
       email: params[:email], 
       password: params[:password],
-      image_name: "default_users.jpg")
+      image_name: "default_users.jpg",)
 
     if @user.save
+      UserMailer.account_activation(@user).deliver_now
       flash[:notice] = "ユーザー登録が完了しました"
       redirect_to("/")
     else
