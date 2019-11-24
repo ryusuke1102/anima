@@ -13,7 +13,7 @@ ryusuke:
    name: ryusuke
    email: ryusukeminee2@gmail.com
    password: password
-   activated: true
+   activated: false
    activated_at: <%= Time.zone.now%>
 
 

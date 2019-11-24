@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   post "login" => "users#login"
 
   get '/users',to:'users#index'
-  get "users/:id/edit" => "users#edit"
   post "users/:id/update" => "users#update"
   get "users/:id" => "users#show"
   get "signup" => "users#new"

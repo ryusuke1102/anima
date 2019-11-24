@@ -4,8 +4,8 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.all.order(created_at: :asc)
-    @users = User.page(params[:page]).per(8)
+    @users = User.where(activated: true).all.order(created_at: :desc).
+                  page(params[:page]).per(8)
     @user = User.find_by(id: params[:id])
   end
 
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       image_name: "default_users.jpg",)
 
     if @user.save
-      UserMailer.account_activation(@user).deliver_now
+      @user.send_activation_email
       flash[:notice] = "ユーザー登録が完了しました"
       redirect_to("/")
     else
@@ -35,11 +35,13 @@ class UsersController < ApplicationController
     
   def edit
     @user = User.find_by(id: params[:id])
+    redirect_to root_url and return unless @user.activated?
   end
 
   def login
     @user = User.find_by(email: params[:email],password: params[:password])
-    if @user
+    
+    if @user && @user.activated?
       log_in @user
       params[:remember_me] == '1' ? remember(@user): forget(@user)
       remember @user
