@@ -1,0 +1,31 @@
+<%=provide(:title,"posts-new")%>
+ <div class="post-form"> 
+ <%=image_tag "post-form.jpg", class:"post-form"%>
+   <div class="bg-mask">
+     <div class="container">
+
+     <div class="container">
+ 　<% if @error_message %>
+      <div class="error-message">
+        <%=@error_message%>
+      </div>
+    <%end%>
+    
+      <div class="form-body">
+　 　<%= form_tag("/posts/create",{multipart: true})do %>
+      
+       <form>
+       <input name="content" placeholder="タイトル">
+　　  　<textarea name="detail" placeholder="投稿の詳細を記入"></textarea>
+<div class="btn">
+　<input name="image" type="file" >
+</div>
+<div class="btn">
+     <button type="submit" id="login-button">募集する</button>   
+     </div>
+     　 </form>
+ 　　<% end %>
+    </div>
+   </div>
+  </div>
+ </div>

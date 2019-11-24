@@ -1,0 +1,22 @@
+　<%=provide(:title,"posts-edit")%>
+<div class="post-form"> 
+<%=image_tag "post-form.jpg", class:"posdt-form"%>
+<div class="bg-mask">
+
+<div class="container">
+  <div class="form-body">
+<%= form_tag("/posts/#{@post.id}/update", {multipart: true}) do %>
+ <form>
+
+     <input name="content" value="<%=@post.content%>" >
+　　　<textarea name="detail"><%=@post.detail%></textarea>
+    　<input name="image" type="file" >
+    <div class="btn">
+    <button type="submit" id="login-button">編集完了</button>   
+    </div>
+
+ <% end %>
+ </form>
+ </div>
+ </div>
+ </div>
