@@ -16,4 +16,6 @@ ryusuke:
    activated: false
    activated_at: <%= Time.zone.now%>
 
+   
+
 
