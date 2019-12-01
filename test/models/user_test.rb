@@ -64,16 +64,33 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should follow and unfollow a user" do
-  #フォローのテスト
+    #フォローのテスト
     minee   = users(:minee)
-    ryusuke = users(:ryusuke)
-    assert_not minee.following?(ryusuke)
-    minee.follow(ryusuke)
-    assert minee.following?(ryusuke)
-    assert ryusuke.followers.include?(minee)
-    minee.unfollow(ryusuke)
-    assert_not minee.following?(ryusuke)
+    dog = users(:dog)
+    assert_not minee.following?(dog)
+    minee.follow(dog)
+    assert minee.following?(dog)
+    assert dog.followers.include?(minee)
+    minee.unfollow(dog)
+    assert_not minee.following?(dog)
   end
-  
 
+  test "feed should have the right posts" do
+    minee = users(:minee)
+    dog   = users(:dog)
+    cat   = users(:cat)
+    #フォローしているユーザーの投稿を表示
+    cat.posts.each do |p|
+      assert minee.feed.include?(p)
+    end
+    #自分自身の投稿を表示
+    minee.posts.each do |p|
+      assert minee.feed.include?(p)
+    end
+    #フォローしていないユーザーの投稿を非表示
+    dog.posts.each do |p|
+      assert_not minee.feed.include?(p)
+    end
+
+  end
 end

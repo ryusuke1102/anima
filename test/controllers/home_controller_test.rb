@@ -7,12 +7,6 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_select "title", "Top | Anima"
   end
 
-  test "should get index" do
-    get users_path
-    assert_response :success
-    assert_select "title", "users-index | Anima"
-  end
-
   test "should get login" do
     get login_path
     assert_response :success
@@ -30,4 +24,11 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "title", "posts | Anima"
   end
+
+  test "should not get index" do
+    get users_path
+    assert_response :redirect
+    assert_redirected_to login_path
+  end
+
 end

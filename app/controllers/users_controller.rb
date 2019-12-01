@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
   include ApplicationHelper
   before_action :authenticate_user,{only: [:edit]}
+  before_action :logged_in_user, only: [:index, :update, :destroy, :following, :followers]
 
 
   def index
     @users = User.where(activated: true).all.order(created_at: :desc).
                   page(params[:page]).per(8)
-    @user = User.find_by(id: params[:id])
+    @user  = User.find_by(id: params[:id])
   end
 
   def new
@@ -36,6 +37,8 @@ class UsersController < ApplicationController
   def edit
     @user = User.find_by(id: params[:id])
     redirect_to root_url and return unless @user.activated?
+    @posts = Post.page(params[:page]).per(4)
+
   end
 
   def login
@@ -95,5 +98,28 @@ class UsersController < ApplicationController
       render("users/show")
     end
     
+  end
+
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.page(params[:page]).per(12)
+
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.page(params[:page]).per(12)
+    render 'show_follow'
+  end
+
+  private
+  def logged_in_user
+    unless logged_in?
+      flash[:notice] = "ログインが必要です"
+      redirect_to login_url
+    end
   end
 end

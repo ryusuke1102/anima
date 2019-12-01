@@ -19,9 +19,12 @@ Rails.application.routes.draw do
   post "posts/:id/destroy" =>"posts#destroy"
   get '/posts',to:'posts#index'
   root 'home#top'
-
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :posts
   resources :account_activations, only: [:edit]
-
+  resources :relationships,       only: [:create, :destroy]
 end

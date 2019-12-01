@@ -3,9 +3,32 @@
 cat:
   content: my favorit cat
   detail: i love cat
-  user_id: 1
+  user: minee
 
 dog:
   content: my favorit dog
   detail: i love dog
-  user_id: 2
+  user: minee
+
+cat_video:
+  content: "Sad cats are sad: http://youtu.be/PKffm2uI4dk"
+  created_at: <%= 2.hours.ago %>
+  user: minee
+
+fox:
+  content: "Writing a short test"
+  created_at: <%= Time.zone.now %>
+  user: minee
+
+snake:
+  content: "i am snake"
+  created_at: <%= Time.zone.now %>
+  user: ryuzuke
+
+
+<% 30.times do |n| %>
+micropost_<%= n %>:
+  content: <%= Faker::Lorem.sentence(5) %>
+  created_at: <%= 42.days.ago %>
+  user: minee
+<% end %>

@@ -23,8 +23,7 @@
     width: 100%;
 }
 
-.user-profile{
-    
+.user-profile{    
     padding-left: 0;
     text-align: center;
     margin-top: 100px;
@@ -52,8 +51,6 @@
 .user-index{
     margin-left: 56px;
 }
-
-
 
 .edit-btn{
     text-align: right; 
@@ -90,6 +87,75 @@
         opacity: 1;
         transform: translateY(0)
     }
-
 }
 
+//フォロー
+
+.stat{
+    margin-left: 10px;
+    color: rgb(0, 0, 0);
+}
+
+.stats{
+    overflow: auto;
+    margin-bottom: 30px;
+    a {
+        padding: 0 10px;
+        border-left: 1px solid rgb(146, 139, 139);
+        color: rgb(199, 71, 71);
+        &:first-child {
+          padding-left: 0;
+          border: 0;
+        }
+        &:hover {
+          text-decoration: none;
+          color: blue;
+        }
+    }
+}
+
+.follow-btn{
+    margin-top: -30px;
+    
+}
+.btn-follow{
+    width: 20%;
+    background-color: rgba(196, 181, 170, 0.774);
+    border-radius: 25px;
+ 
+}
+
+.btn-unfollow{
+    width: 20%;
+    background-color: rgba(248, 125, 24, 0.774);
+
+    border-radius: 25px;
+ 
+}
+
+.follow-pagenate{
+    margin-top: 200px;
+}
+
+.user_info{
+    float: left;
+}
+
+.stats-f{
+    overflow: auto;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    a {
+        padding: 0 10px;
+        border-left: 1px solid rgb(146, 139, 139);
+        color: rgb(5, 5, 5);
+        &:first-child {
+          padding-left: 0;
+          border: 0;
+        }
+        &:hover {
+          text-decoration: none;
+          color: blue;
+        }
+    }
+}

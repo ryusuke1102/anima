@@ -4,18 +4,23 @@
  <div class="bg-mask">
   <div class="user-profile">
    <div class="user-img"">
-  
+
+    <div class="follow-btn">
+        <%=render 'follow_form'%>
+    </div>
+
    <% if @current_user.id == @user.id %>
      <%= link_to user_path(@user) do%>
       <img src="<%="/users_images/#{@user.image_name}"%>">
      <%end%>
-   <%else%>
+     <%else%>
       <img src="<%="/users_images/#{@user.image_name}"%>">
-    <%end%>
+   <%end%>
 
    </div>
-       <div class="user-name">
-        <%=@user.name%></br>
+   <%=render 'shared/stats'%>
+   <div class="user-name">
+        <h2><%=@user.name%></h2></br>
        </div>
        <div class="user-email">
         <%=@user.email%> 
@@ -49,8 +54,9 @@
          </div>
         </div>
       <%end%>
-    
-
+      <div class="pagenation">
+      <%= paginate @posts %>
+      </div>
     </div>
   </div>
 </div>

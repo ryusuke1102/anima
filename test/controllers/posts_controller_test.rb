@@ -5,7 +5,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   def setup
     @post  = posts(:cat)
-    @post2 = posts(:dog)
+    @post2 = posts(:snake)
     @user  = users(:minee)
   end
 

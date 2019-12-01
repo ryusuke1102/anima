@@ -4,7 +4,7 @@ class UserActivationTestTest < ActionDispatch::IntegrationTest
 
   def setup
     @user  = users(:minee)    #認証済みユーザー
-    @user2 = users(:ryusuke)  #非認証ユーザー
+    @user2 = users(:snake)    #非認証ユーザー
   end
 
   test "user index only correct link" do

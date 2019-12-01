@@ -1,2 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+one:
+  follower: minee
+  followed: ryusuke
+
+two:
+  follower: minee
+  followed: cat
+
+three:
+  follower: ryusuke
+  followed: minee
+
+four:
+  follower: dog
+  followed: minee
+
+  
