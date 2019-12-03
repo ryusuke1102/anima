@@ -1,9 +1,12 @@
 class PostsController < ApplicationController
+  include ApplicationHelper
   before_action :authenticate_user,{only: [:new, :create, :show, :edit, :update, :destroy]}
   before_action :correct_user,   only: :destroy
+
   def index
-    @posts = Post.all.order(created_at: :desc)
-    @posts = Post.page(params[:page]).per(8)
+    @posts     = Post.page(params[:page]).per(8)
+    @feed_item = current_user.feed.page(params[:page]).per(8)
+    
   end
 
   def new

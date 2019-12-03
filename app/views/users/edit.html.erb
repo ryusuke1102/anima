@@ -43,7 +43,7 @@
      このユーザーの投稿 
      </div>
     
-    <% @user.posts.each do |post|%>
+    <% @posts.each do |post|%>
         <div class="posts-index">
         <div class="post-index-item">
         <%= link_to(truncate(post.content,length:14) ,"/posts/#{post.id}") %>
@@ -53,10 +53,11 @@
           </div>
          </div>
         </div>
-      <%end%>
-      <div class="pagenation">
+        <div class="pagenation">
       <%= paginate @posts %>
       </div>
+      <%end%>
+      
     </div>
   </div>
 </div>

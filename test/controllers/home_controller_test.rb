@@ -19,11 +19,6 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_select "title", "users-new | Anima"
   end
 
-  test "should get posts" do
-    get posts_path
-    assert_response :success
-    assert_select "title", "posts | Anima"
-  end
 
   test "should not get index" do
     get users_path

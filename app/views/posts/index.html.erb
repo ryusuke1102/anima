@@ -6,6 +6,32 @@
    <div class="container">
 　  <div class="page-title"> 投稿一覧 </div>
 
+
+<%if current_user%>
+<% @feed_item.each do |post| %>
+  <%= link_to("/posts/#{post.id}") do %>
+<div class="posts-index">
+<div class="post-index-item">
+      <%=truncate(post.content, length:14)%>
+
+      <div class="post_image">
+        <img src="<%="/posts_images/#{post.id}.jpg"%>">
+      </div>
+      
+      <div class="post-user-name">
+        投稿者：<%=post.user.name%>
+      </div>
+      
+    <%end%>
+    </div>
+   </div>
+  <%end%>　
+  <div class="pagenation">
+  <%= paginate @feed_item %>
+  </div>
+
+
+<%else%>
    <% @posts.each do |post| %>
       <%= link_to("/posts/#{post.id}") do %>
   <div class="posts-index">
@@ -17,7 +43,7 @@
           </div>
           
           <div class="post-user-name">
-          
+            投稿者：<%=post.user.name%>
           </div>
           
         <%end%>
@@ -27,8 +53,10 @@
       <div class="pagenation">
       <%= paginate @posts %>
       </div>
+<%end%>
       </div>
     </div>
 
  </div>
 </div>
+

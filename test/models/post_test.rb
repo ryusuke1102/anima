@@ -27,7 +27,7 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test "content should not be too long" do
-    @post.content  = "a" * 31
+    @post.content  = "a" * 101
     assert_not @post.valid?
   end
 

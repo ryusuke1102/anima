@@ -37,8 +37,9 @@ class UsersController < ApplicationController
   def edit
     @user = User.find_by(id: params[:id])
     redirect_to root_url and return unless @user.activated?
-    @posts = Post.page(params[:page]).per(4)
-
+    @posts = Post.where(user_id: @user.id).page(params[:page]).per(4)
+    
+    
   end
 
   def login
