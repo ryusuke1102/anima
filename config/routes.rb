@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  post "likes/:post_id/destroy" => "likes#destroy"
-  post "likes/:post_id/create" => "likes#create"
+  #post "likes/:post_id/destroy" => "likes#destroy"
+  #post "likes/:post_id/create" => "likes#create"
 
   post "logout" => "users#logout"
   get "login" => "users#login_form"
@@ -27,4 +27,5 @@ Rails.application.routes.draw do
   resources :posts
   resources :account_activations, only: [:edit]
   resources :relationships,       only: [:create, :destroy]
+  resources :likes,               only: [:create, :destroy]
 end

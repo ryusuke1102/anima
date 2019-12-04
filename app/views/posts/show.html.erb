@@ -13,30 +13,11 @@
       </div>
     <div class="post-content">
 
-      <div class="like">
-            <% if Like.find_by(user_id: @current_user.id, post_id: @post.id)%>
-            <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do%>
-            <i class="fas fa-cat like-btn-unlike"></i>        
-            <% end %>
-            <%else%>
-            <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do%>
-            <i class="fas fa-cat like-btn"></i>        
-              <% end %>
-            <%end%>
-            <%=@like_count%>
-  
-          <%if @post.user_id == @current_user.id%>
-            <%= link_to ("/posts/#{@post.id}/edit") do %>
-              <i class="fas fa-edit"></i>
-            <%end%>
-            <%= link_to("/posts/#{@post.id}/destroy", {method: "post"}) do %>
-              <i class="fas fa-trash"></i>
-            <%end%>
-          <%end%>
+      <div class="like" id="like_form">
+       <%=render 'likes/like'%>
       </div>
       <div class="post-detail">
        <P><%= @post.detail %></p>
-   
       </div>
     </div>
 

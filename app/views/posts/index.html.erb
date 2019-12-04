@@ -32,6 +32,7 @@
 
 
 <%else%>
+<%if @post%>
    <% @posts.each do |post| %>
       <%= link_to("/posts/#{post.id}") do %>
   <div class="posts-index">
@@ -53,6 +54,7 @@
       <div class="pagenation">
       <%= paginate @posts %>
       </div>
+      <%end%>
 <%end%>
       </div>
     </div>

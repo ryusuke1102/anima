@@ -1,24 +1,27 @@
 class LikesController < ApplicationController
+    include ApplicationHelper
     before_action :authenticate_user
     
     def create
-        @like = Like.new(
-            user_id: @current_user.id, 
-            post_id: params[:post_id]
-            )
-
-        @like.save
-        redirect_to("/posts/#{params[:post_id]}")
+        @post = Post.find(params[:post_id])
+        unless @post.like?(current_user)
+            @post.like(current_user)
+            respond_to do |format|
+                format.html { redirect_to request.referrer ||  post_path}
+                format.js
+      end
     end
+      end
     
-    def destroy
-        @like = Like.find_by(
-            user_id: @current_user.id, 
-            post_id: params[:post_id]
-            )
-
-        @like.destroy
-        redirect_to("/posts/#{params[:post_id]}")
+      def destroy
+        @post = Like.find(params[:id]).post
+        if @post.like?(current_user)
+            @post.unlike(current_user)
+            respond_to do |format|
+                format.html { redirect_to request.referrer ||  post_path}
+                format.js
+      end
+    end
     end
 
   end

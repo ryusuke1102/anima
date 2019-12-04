@@ -1,0 +1,21 @@
+<% if current_user %>
+      <span class="like">
+      <% if @post.like?(current_user) %>
+        <%= form_for(@post.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+          <%= button_tag(class: "like-btn") do %>
+            <%= content_tag :span, "いいね済み", class: "fas fa-cat like-btn-unlike" %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= form_for(@post.likes.build, remote: true) do |f| %>
+          <div><%= hidden_field_tag :post_id, @post.id %></div>
+          <%= button_tag(class: "unlike-btn") do %>
+            <%= content_tag :span, "いいね", class: "fas fa-cat likes-btn" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </span>
+    <div id="like-count">
+      <%=@like_count%>
+    </div>
+  <% end %>
