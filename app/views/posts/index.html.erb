@@ -6,8 +6,12 @@
    <div class="container">
 　  <div class="page-title"> 投稿一覧 </div>
 
-
 <%if current_user%>
+<%=render 'posts/search_form'%>
+ <% if @feed_item.empty?%> 
+  該当の投稿はありません
+ <% else %>
+
 <% @feed_item.each do |post| %>
   <%= link_to("/posts/#{post.id}") do %>
 <div class="posts-index">
@@ -22,21 +26,21 @@
         投稿者：<%=post.user.name%>
       </div>
       
-    <%end%>
+    　<%end%>
     </div>
    </div>
   <%end%>　
   <div class="pagenation">
   <%= paginate @feed_item %>
   </div>
-
+<% end %>
 
 <%else%>
 <%if @post%>
    <% @posts.each do |post| %>
       <%= link_to("/posts/#{post.id}") do %>
-  <div class="posts-index">
-    <div class="post-index-item">
+     <div class="posts-index">
+       <div class="post-index-item">
           <%=truncate(post.content, length:14)%>
 
           <div class="post_image">

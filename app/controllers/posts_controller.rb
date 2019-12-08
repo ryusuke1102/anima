@@ -2,12 +2,21 @@ class PostsController < ApplicationController
   include ApplicationHelper
   before_action :authenticate_user,{only: [:new, :create, :show, :edit, :update, :destroy]}
   before_action :correct_user,   only: :destroy
+  before_action :logged_in_user, only: [:index]
 
   def index
-    @posts     = Post.page(params[:page]).per(8)
+
     if logged_in?
-    @feed_item = current_user.feed.page(params[:page]).per(8)
+      if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
+       @q = Post.ransack(search_params)
+       @feed_item = @q.result.page(params[:page]).per(8)
+      end
+      unless params[:q] && params[:q].reject { |key, value| value.blank? }.present?
+       @q = Post.ransack
+       @feed_item = current_user.feed.page(params[:page]).per(8)
+      end
     end
+
   end
 
   def new
@@ -79,12 +88,21 @@ class PostsController < ApplicationController
 
 private
 
+  def logged_in_user
+    unless logged_in?
+      flash[:notice] = "ログインが必要です"
+      redirect_to login_url
+    end
+  end
+
   def correct_user
     @post = @current_user.posts.find_by(id: params[:id])
     redirect_to root_url if @post.nil?
   end
 
-
+  def search_params
+    params.require(:q).permit(:content_cont)
+  end
   
 
 

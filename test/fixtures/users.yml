@@ -36,3 +36,10 @@ snake:
    activated: false
    activated_at: <%= Time.zone.now%>
 
+<% 30.times do |n| %>
+user_<%= n %>:
+  name:  <%= "User #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  activated: true
+  activated_at: <%= Time.zone.now%>%>
+<% end %>

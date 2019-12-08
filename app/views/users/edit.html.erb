@@ -27,16 +27,16 @@
        </div>
        </div>
        <div class="edit-btn">
-       <% if @current_user.id == @user.id%>
+        <% if @current_user.id == @user.id%>
           <%= link_to user_path(@user) do%>
-          <i class="fas fa-user-edit"></i>
+         　 <i class="fas fa-user-edit"></i>
           <%end%>
 
           <%= link_to @user, method: :delete,data: { confirm: "ユーザーを削除しますか?" } do %>
-          <i class="fas fa-trash"></i>
+            <i class="fas fa-trash"></i>
           <%end%>
-       <%end%>
-    </div>
+        <%end%>
+    　 </div>
    <div class="container">
     <div class="users-index">
      <div class="user-posts">

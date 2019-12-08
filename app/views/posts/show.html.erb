@@ -7,7 +7,6 @@
         <h1 style="margin-top: 0; padding-top: 0;"><%= @post.content %></h1>
         <h4 class="post-user-name",style="margin-top: 0;"><img src="<%="/users_images/#{@user.image_name}"%>"><%= link_to(@user.name, "/users/#{@user.id}/edit") %></h4>
    
-
       <div class="posts-image">
         <img src="<%="/posts_images/#{@post.id}.jpg"%>">
       </div>
@@ -16,6 +15,18 @@
       <div class="like" id="like_form">
        <%=render 'likes/like'%>
       </div>
+
+     <% if @current_user.id == @post.user_id %>
+           <div class="edit-btn">
+        <%= link_to edit_post_path(@post) do%>
+       　 <i class="fas fa-user-edit"></i>
+        <%end%>
+        <%= link_to @post, method: :delete,data: { confirm: "投稿を削除しますか?" } do %>
+          <i class="fas fa-trash"></i>
+        <%end%>
+          </div>
+     <%end%>
+
       <div class="post-detail">
        <P><%= @post.detail %></p>
       </div>

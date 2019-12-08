@@ -1,5 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+#mineeが　ryusukeとcatをfollow
 one:
   follower: minee
   followed: ryusuke
@@ -8,6 +9,7 @@ two:
   follower: minee
   followed: cat
 
+#mineeが　ryusukeとdogにfollowされている
 three:
   follower: ryusuke
   followed: minee

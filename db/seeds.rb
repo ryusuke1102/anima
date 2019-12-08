@@ -27,7 +27,7 @@ followers.each { |follower| follower.follow(user) }
 
 users = User.order(:created_at).take(6)
 4.times do
-  content = "ペット自慢です"
+  content = Faker::Lorem.sentence(1)
   detail  = Faker::Lorem.sentence(5)
   users.each { |user| user.posts.create!(content: content, detail: detail) }
 end

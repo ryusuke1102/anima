@@ -1,13 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 cat:
-  content: my favorit cat
+  content: favorit cat
   detail: i love cat
+  created_at: <%= Time.zone.now %>
+
   user: minee
 
 dog:
   content: my favorit dog
   detail: i love dog
+  created_at: <%= Time.zone.now %>
   user: minee
 
 cat_video:
@@ -25,6 +28,10 @@ snake:
   created_at: <%= Time.zone.now %>
   user: ryuzuke
 
+dog2:
+  content: "i am dog"
+  created_at: <%= Time.zone.now %>
+  user: dog
 
 <% 30.times do |n| %>
 micropost_<%= n %>:

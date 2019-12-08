@@ -1,23 +1,28 @@
 <%=provide(:title,"users-index")%>
 <div class="users-bg">
  <%=image_tag"user-index.jpg", class:"users-bg"%>
-  <div class="bg-mask">
+　<div class="bg-mask">
    <div class="container">　
-        <div class="pagenation">
+      <div class="pagenation">
         <%= paginate @users %>
-        </div>  　 　
-　   <div class="page-title"> ユーザー一覧 </div>
-　　　　<div class="user-item">
-　　 　　　<% @users.each do |user| %> 
-        <div class="user-index">
-        <img src="<%="/users_images/#{user.image_name}"%>">
-        <%= link_to user.name, "/users/#{user.id}/edit" %>
+      </div>  　 　
+　  <div class="page-title"> ユーザー一覧 </div>
+        <%= render 'users/search_form'%>
+        <% if @users.empty?%>
+          該当ユーザーが見つかりません
+        <% else %>
+　<div class="user-item">
+   <% @users.each do |user| %> 
+    <div class="user-index">
+      <img src="<%="/users_images/#{user.image_name}"%>">
+       <%= link_to user.name, "/users/#{user.id}/edit" %>
         </div>
- 　 　<%end%>
-　   </div＞  
-   </div＞
-　</div＞   
-</div＞
+ 　 　　　<% end %>
+    　　<% end %>
+　 　  </div＞  
+ 　　 </div＞
+　　</div＞   
+　</div＞
 </div＞
 
 

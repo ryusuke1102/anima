@@ -5,9 +5,13 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.where(activated: true).all.order(created_at: :desc).
-                  page(params[:page]).per(8)
-    @user  = User.find_by(id: params[:id])
+    
+    if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
+      @q = User.ransack(search_params, activated_true: true)
+    else
+      @q = User.ransack(activated_true: true)
+    end
+      @users = @q.result.page(params[:page]).per(8)
   end
 
   def new
@@ -122,5 +126,9 @@ class UsersController < ApplicationController
       flash[:notice] = "ログインが必要です"
       redirect_to login_url
     end
+  end
+
+  def search_params
+    params.require(:q).permit(:name_cont)
   end
 end
