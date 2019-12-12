@@ -13,9 +13,11 @@ gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 gem 'kaminari'
 gem 'ransack'
+gem 'yaml_db'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.13'
+  #gem 'sqlite3', '1.3.13'
+  gem 'mysql2'
   gem 'byebug',  '9.0.6', platform: :mri
 end
 
@@ -35,7 +37,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.20.0'
+  gem 'mysql2'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

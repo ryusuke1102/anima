@@ -1,0 +1,62 @@
+D, [2019-12-12T00:14:15.053212 #91655] DEBUG -- :   [1m[35m (1.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+D, [2019-12-12T00:14:15.087387 #91655] DEBUG -- :   [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY) ENGINE=InnoDB[0m
+D, [2019-12-12T00:14:15.101092 #91655] DEBUG -- :   [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2019-12-12T00:14:15.101549 #91655] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('7301231183495299680', 0)[0m
+D, [2019-12-12T00:14:15.122373 #91655] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+I, [2019-12-12T00:14:15.124330 #91655]  INFO -- : Migrating to CreatePosts (20191016113437)
+D, [2019-12-12T00:14:15.134247 #91655] DEBUG -- :   [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE `posts` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `content` varchar(255), `image_name` varchar(255), `detail` text, `user_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2019-12-12T00:14:15.138028 #91655] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+D, [2019-12-12T00:14:15.138859 #91655] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20191016113437')[0m
+D, [2019-12-12T00:14:15.139493 #91655] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+I, [2019-12-12T00:14:15.139560 #91655]  INFO -- : Migrating to CreateUsers (20191016114111)
+D, [2019-12-12T00:14:15.148313 #91655] DEBUG -- :   [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `email` varchar(255), `image_name` varchar(255), `password` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2019-12-12T00:14:15.149104 #91655] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2019-12-12T00:14:15.150461 #91655] DEBUG -- :   [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20191016114111')[0m
+D, [2019-12-12T00:14:15.151673 #91655] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+I, [2019-12-12T00:14:15.151733 #91655]  INFO -- : Migrating to CreateLikes (20191016114241)
+D, [2019-12-12T00:14:15.170796 #91655] DEBUG -- :   [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE `likes` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` int NOT NULL, `post_id` int NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_likes_on_user_id`  (`user_id`),  INDEX `index_likes_on_post_id`  (`post_id`)) ENGINE=InnoDB[0m
+D, [2019-12-12T00:14:15.171255 #91655] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+D, [2019-12-12T00:14:15.171958 #91655] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20191016114241')[0m
+D, [2019-12-12T00:14:15.172843 #91655] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+I, [2019-12-12T00:14:15.172992 #91655]  INFO -- : Migrating to AddIndexToUsersEmail (20191114084631)
+D, [2019-12-12T00:14:15.196339 #91655] DEBUG -- :   [1m[35m (13.5ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+D, [2019-12-12T00:14:15.199572 #91655] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2019-12-12T00:14:15.201867 #91655] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20191114084631')[0m
+D, [2019-12-12T00:14:15.204378 #91655] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+I, [2019-12-12T00:14:15.204466 #91655]  INFO -- : Migrating to ChangeColumnToUser (20191114094615)
+D, [2019-12-12T00:14:15.244485 #91655] DEBUG -- :   [1m[35m (28.7ms)[0m  [1m[35mALTER TABLE `users` CHANGE `password` `password` varchar(255) DEFAULT NULL[0m
+D, [2019-12-12T00:14:15.245030 #91655] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+D, [2019-12-12T00:14:15.245631 #91655] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20191114094615')[0m
+D, [2019-12-12T00:14:15.246246 #91655] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+I, [2019-12-12T00:14:15.246303 #91655]  INFO -- : Migrating to AddRememberDigestToUsers (20191118135333)
+D, [2019-12-12T00:14:15.259404 #91655] DEBUG -- :   [1m[35m (11.8ms)[0m  [1m[35mALTER TABLE `users` ADD `remember_digest` varchar(255)[0m
+D, [2019-12-12T00:14:15.260270 #91655] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+D, [2019-12-12T00:14:15.262746 #91655] DEBUG -- :   [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20191118135333')[0m
+D, [2019-12-12T00:14:15.263665 #91655] DEBUG -- :   [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+I, [2019-12-12T00:14:15.263730 #91655]  INFO -- : Migrating to AddActivationToUsers (20191120142808)
+D, [2019-12-12T00:14:15.271264 #91655] DEBUG -- :   [1m[35m (6.2ms)[0m  [1m[35mALTER TABLE `users` ADD `activation_digest` varchar(255)[0m
+D, [2019-12-12T00:14:15.283664 #91655] DEBUG -- :   [1m[35m (12.0ms)[0m  [1m[35mALTER TABLE `users` ADD `activated` tinyint(1) DEFAULT 0[0m
+D, [2019-12-12T00:14:15.291593 #91655] DEBUG -- :   [1m[35m (7.6ms)[0m  [1m[35mALTER TABLE `users` ADD `activated_at` datetime[0m
+D, [2019-12-12T00:14:15.293987 #91655] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2019-12-12T00:14:15.295355 #91655] DEBUG -- :   [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20191120142808')[0m
+D, [2019-12-12T00:14:15.296295 #91655] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+I, [2019-12-12T00:14:15.296381 #91655]  INFO -- : Migrating to CreateRelationships (20191125115215)
+D, [2019-12-12T00:14:15.306617 #91655] DEBUG -- :   [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE `relationships` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `follower_id` int, `followed_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2019-12-12T00:14:15.322849 #91655] DEBUG -- :   [1m[35m (6.8ms)[0m  [1m[35mCREATE  INDEX `index_relationships_on_follower_id`  ON `relationships` (`follower_id`) [0m
+D, [2019-12-12T00:14:15.335715 #91655] DEBUG -- :   [1m[35m (6.0ms)[0m  [1m[35mCREATE  INDEX `index_relationships_on_followed_id`  ON `relationships` (`followed_id`) [0m
+D, [2019-12-12T00:14:15.350607 #91655] DEBUG -- :   [1m[35m (11.0ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_relationships_on_follower_id_and_followed_id`  ON `relationships` (`follower_id`, `followed_id`) [0m
+D, [2019-12-12T00:14:15.351038 #91655] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+D, [2019-12-12T00:14:15.351613 #91655] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20191125115215')[0m
+D, [2019-12-12T00:14:15.352210 #91655] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+D, [2019-12-12T00:14:15.361821 #91655] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (4.2ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+D, [2019-12-12T00:14:15.367233 #91655] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+D, [2019-12-12T00:14:15.368226 #91655] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'production', '2019-12-11 15:14:15', '2019-12-11 15:14:15')[0m
+D, [2019-12-12T00:14:15.368904 #91655] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+D, [2019-12-12T00:14:15.369174 #91655] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('7301231183495299680')[0m
+D, [2019-12-12T00:14:30.844525 #91704] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+D, [2019-12-12T00:14:30.905003 #91704] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+D, [2019-12-12T00:14:30.916033 #91704] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+D, [2019-12-12T00:14:30.917655 #91704] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+D, [2019-12-12T00:14:30.919357 #91704] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+D, [2019-12-12T00:14:30.923561 #91704] DEBUG -- :   [1m[35m (2.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+D, [2019-12-12T00:14:30.925633 #91704] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
