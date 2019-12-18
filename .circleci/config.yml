@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.5.0-node-browsers
-      - image: circleci/mysql:8.0.17
+      - image: circleci/mysql:5.7.22
     steps:
       - checkout
       - run: bundle install
