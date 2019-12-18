@@ -38,23 +38,13 @@ jobs:
 
       # Database setup
       - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
+      - run: bundle exec rake db:migrate:reset
+      - run: bundle exec rake db:seed
 
       # run tests!
       - run:
           name: run tests
-          command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
-              circleci tests split --split-by=timings)"
-
-            bundle exec rspec \
-              --format progress \
-              --format RspecJunitFormatter \
-              --out /tmp/test-results/rspec.xml \
-              --format progress \
-              $TEST_FILES
-
+          command: bundle exec rake test
       # collect reports
       - store_test_results:
           path: /tmp/test-results
