@@ -55,7 +55,7 @@ Rails.application.configure do
   #認証メールの設定
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :test
-  host = 'localhost:8443'
+  host = 'localhost:3000'
   config.action_mailer.default_url_options = { host: host, protocol: 'https' }
 
 end

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.5.0'
 gem 'rails',        '5.1.6'
 gem 'bcrypt',         '3.1.12'
 gem 'faker',          '1.7.3'
@@ -14,10 +15,9 @@ gem 'jbuilder',     '2.7.0'
 gem 'kaminari'
 gem 'ransack'
 gem 'yaml_db'
+gem 'mysql2'
 
 group :development, :test do
-  #gem 'sqlite3', '1.3.13'
-  gem 'mysql2'
   gem 'byebug',  '9.0.6', platform: :mri
 end
 
@@ -36,8 +36,6 @@ group :test do
   gem 'guard-minitest',           '2.4.4'
 end
 
-group :production do
-  gem 'mysql2'
-end
+
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -54,7 +54,7 @@ end
   end
 
   def activate
-    update_columns(activated: true, activated_at: Time.zone.now)
+    update_columns(activated: true, activated_at: Time.zone.now.to_s(:db) )
   end
 
   def send_activation_email
