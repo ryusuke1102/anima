@@ -10,3 +10,4 @@ jobs:
       - run: mv config/database.yml.ci config/database.yml
       - run: bundle exec rails db:create db:migrate RAILS_ENV=test
       - run: bundle exec rails test
+      
