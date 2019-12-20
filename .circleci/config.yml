@@ -16,8 +16,6 @@ jobs:
       steps:
           - checkout
           - add_ssh_keys:
-            fingerprints:
-            - "da:91:73:a7:47:61:3f:6e:aa:a8:fb:8c:4e:a9:fd:f4"
           - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/rails/anima && git pull'
 workflows:
     version: 2
@@ -30,5 +28,4 @@ workflows:
                 filters:
                   branches:
                         only: master
-
-                      
+                        
