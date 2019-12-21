@@ -14,7 +14,6 @@ jobs:
       machine:
           image: circleci/classic:edge
       steps:
-        - checkout
         - run:
            name: "authorize-security-group-ingress"
            command: |
