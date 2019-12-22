@@ -31,6 +31,7 @@
 　・投稿検索機能
 
 　・投稿のフィード機能（フォローしているユーザーの投稿のみ表示）
+
 　
 ●使用技術一覧
 
@@ -47,12 +48,14 @@
 　・MySQL
 
 　・minitest
-　
+
+
 ●本番環境
 
 　・AWS (Amazon Linux 2 AMI (HVM), SSD Volume Type) 
 
 　・circleCI(CD/CI)
+
 
 ●参考
 
