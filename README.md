@@ -6,38 +6,60 @@
 
 ●アプリケーションの機能一覧:
 
-　* ログイン・ログアウト機能
-　* cookieによるログイン状態の保持
-　* サインアップ時のメール送信、ユーザー認証機能
-　* ページネーション機能
-　* 記事投稿・削除機能
-　* 画像投稿・削除機能
-　* 投稿編集機能
-　* 投稿への”いいね”機能
-　* ユーザー編集機能
-　* ユーザーに対してのフォロー機能
-　* ユーザー検索機能
-　* 投稿検索機能
-　* 投稿のフィード機能（フォローしているユーザーの投稿のみ表示）
+　・ログイン・ログアウト機能
+
+　・cookieによるログイン状態の保持
+
+　・サインアップ時のメール送信、ユーザー認証機能
+
+　・ページネーション機能
+
+　・記事投稿・削除機能
+
+　・画像投稿・削除機能
+
+　・投稿編集機能
+
+　・投稿への”いいね”機能
+
+　・ユーザー編集機能
+
+　・ユーザーに対してのフォロー機能
+
+　・ユーザー検索機能
+
+　・投稿検索機能
+
+　・投稿のフィード機能（フォローしているユーザーの投稿のみ表示）
 　
-●使用技術一覧:
+●使用技術一覧
 
-　* docker(ローカル開発環境)
-　* Ruby on Rails 5.1.6
-　* ruby 2.5.0
-　* html/css (scss)
-　* javascript/jQuery
-　* MySQL
-　* minitest
+　・docker(ローカル開発環境)
+
+　・Ruby on Rails 5.1.6
+
+　・ruby 2.5.0
+
+　・html/css (scss)
+
+　・javascript/jQuery
+
+　・MySQL
+
+　・minitest
 　
-●本番環境:
+●本番環境
 
-　* AWS (Amazon Linux 2 AMI (HVM), SSD Volume Type) 
-　* circleCI(CD/CI)
+　・AWS (Amazon Linux 2 AMI (HVM), SSD Volume Type) 
 
-●参考:
+　・circleCI(CD/CI)
 
-　* https://railstutorial.jp/
-　* https://qiita.com/
-　* https://prog-8.com/
-　* https://dotinstall.com/
+●参考
+
+　・https://railstutorial.jp/
+
+　・https://qiita.com/
+
+　・https://prog-8.com/
+
+　・https://dotinstall.com/
