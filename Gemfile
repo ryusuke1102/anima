@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.5.0'
 gem 'rails',        '5.1.6'
 gem 'bcrypt',         '3.1.12'
 gem 'faker',          '1.7.3'
@@ -34,6 +33,10 @@ group :test do
   gem 'minitest-reporters',       '1.1.14'
   gem 'guard',                    '2.13.0'
   gem 'guard-minitest',           '2.4.4'
+end
+
+group :production, :staging do
+  gem 'unicorn'
 end
 
 
