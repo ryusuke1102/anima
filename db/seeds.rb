@@ -1,9 +1,9 @@
 User.create!(name:         "anima",
              email:        "anima@example.com",
-             password:     "ryusuke",
+             password:     "anima",
              image_name:   '1.jpg',
              activated:    true,
-             activated_at: Time.zone.now.to_s(:db) 
+             activated_at: Time.zone.now.to_s(:db) )
 
              4.times do |n|
                 name       = Faker::Name.name
@@ -14,7 +14,7 @@ User.create!(name:         "anima",
                             password:     password,
                             image_name:   "default_users.jpg",
                             activated:    true,
-                            activated_at: Time.zone.now.to_s(:db) 
+                            activated_at: Time.zone.now.to_s(:db) )
               end
 
 # リレーションシップ
