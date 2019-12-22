@@ -48,13 +48,12 @@
 
 　・minitest
 
+　・circleCI(CD/CI)
+
 
 ●本番環境
 
 　・AWS (Amazon Linux 2 AMI (HVM), SSD Volume Type) 
-
-　・circleCI(CD/CI)
-
 
 ●参考
 
